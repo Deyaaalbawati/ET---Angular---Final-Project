@@ -1,0 +1,11 @@
+<br>
+<br>
+<div class="container">
+    <mat-tab-group>
+        <mat-tab label="  {{item.categoryname}}" *ngFor="let item of AllCategory;">
+            <app-card [Categoryid]="item.categoryid"></app-card>
+        </mat-tab>
+
+    </mat-tab-group>
+
+</div>

@@ -1,0 +1,57 @@
+<app-header></app-header>
+<section id="contact" class="contact_area bg_cover pt-120 pb-130"
+  style="background-image: url(assets/images/contact_bg.jpg)">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="section_title section_title_2 text-center pb-25">
+          <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Login</h4>
+        </div>
+      </div>
+
+    </div> 
+    <form id="contact-form" method="post" class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s"
+      style="margin: 1px; justify-content: center;">
+      <div class="column">
+        <div class="col-lg-6">
+          <div class="single_form"> 
+            <input matInput id="email" type="email" [formControl]="emailControl" name="email" title="email" placeholder="Email" >
+            <mat-error *ngIf="emailControl.hasError('email') && !emailControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="single_form">
+            <input matInput id="password"  [formControl]="passwordControl" type="password" name="password" title="password" placeholder="Password" >
+            <mat-error *ngIf="passwordControl.hasError('minlength') && !passwordControl.hasError('required')">
+              Please enter a strong password
+            </mat-error>
+            <mat-error *ngIf="passwordControl.hasError('required')">
+                password is <strong>required</strong>
+            </mat-error>
+          </div>
+        </div>
+        <br>
+        <label style="display: flex">
+          <input type="checkbox" [(ngModel)]="rememberMe" />
+          Remember me.
+        </label>
+         <!-- Register -->
+  <p>Not a member?
+    <a href="" (click)="goToRegister()">Register</a>
+  </p>
+
+        <button type="submit" class="main-btn" [disabled]="!emailControl.valid || !passwordControl.valid" style="width: 15%; margin: 0px 0px 0px 12px; "
+        (click)="submit()">Login</button>
+      </div>
+
+    </form>
+  </div>
+
+</section>
+<app-footer></app-footer>
